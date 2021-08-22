@@ -1,7 +1,4 @@
-# AIML_ExamProject
-Cross-Domain Weakly-Supervised Object Detection through Progressive Domain Adaptation
-
-# High quality, fast, modular reference implementation of SSD in PyTorch 1.0
+# Cross-Domain Weakly-Supervised Object Detection through Progressive Domain Adaptation
 
 
 This repository implements [SSD (Single Shot MultiBox Detector)](https://arxiv.org/abs/1512.02325). The implementation is heavily influenced by the projects [ssd.pytorch](https://github.com/amdegroot/ssd.pytorch), [pytorch-ssd](https://github.com/qfgaohao/pytorch-ssd) and [maskrcnn-benchmark](https://github.com/facebookresearch/maskrcnn-benchmark). This repository aims to be the code base for researches based on SSD.
@@ -66,6 +63,11 @@ For training the SSD, the parameters can be set inside file present at config/vg
 ```bash
 python train.py --config-file configs/vgg_ssd300_voc0712.yaml --skip-test --eval_step -1
 ```
+### Finetune the Baseline SSD model
+To finetune the baseline SSD model, follow the following steps:
+
+1) Replace the VOC2007 and VOC2012 images (present inside the JPEGImages folder) with their domain transferred versions (obtained through CycleGAN or AdaIN).
+2) Make the necessary changes in the config file `vgg_ssd300_voc0712.yaml`. For example, if the baseline training was done for MAX_ITER = 80000 and if you want to finetune this for 10000 more iterations then make the MAX_ITER=90000.
 
 
 ## Evaluate
@@ -83,20 +85,23 @@ python test.py --config-file configs/vgg_ssd300_voc0712.yaml
 
 Predicting image in a folder is simple: 
 ```bash
-python demo.py --config-file configs/vgg_ssd300_voc0712.yaml --images_dir demo --ckpt .\outputs\vgg_ssd300_voc0712\model_final.pth
+python demo.py --config-file configs/vgg_ssd300_voc0712.yaml --images_dir demo --ckpt ./path/of/your/model_final.pth
 ```
-If you want to use the pretrained model, use the following commands -
-
-Then it will download and cache `vgg_ssd300_voc0712.pth` automatically and predicted images with boxes, scores and label names will saved to `demo/result` folder by default.
-
-You will see a similar output:
-```text
-(0001/0005) 004101.jpg: objects 01 | load 010ms | inference 033ms | FPS 31
-(0002/0005) 003123.jpg: objects 05 | load 009ms | inference 019ms | FPS 53
-(0003/0005) 000342.jpg: objects 02 | load 009ms | inference 019ms | FPS 51
-(0004/0005) 008591.jpg: objects 02 | load 008ms | inference 020ms | FPS 50
-(0005/0005) 000542.jpg: objects 01 | load 011ms | inference 019ms | FPS 53
+If you want to use the pretrained models, use the following commands -
+```bash
+# For baseline pretrained model:
+python demo.py --config-file configs/vgg_ssd300_voc0712.yaml --images_dir demo --ckpt https://drive.google.com/file/d/1MqlQE0dp1eSHuKSqRk1VR6Muep1Lkclh/view?usp=sharing
 ```
+```bash
+# For DT1 pretrained model: obtained by finetuning the baseline model for 10k iterations with domain transferred images obtained through CycleGAN
+python demo.py --config-file configs/vgg_ssd300_voc0712.yaml --images_dir demo --ckpt https://drive.google.com/file/d/1E7li2fWtchOxs8WIcYBl9AEwrvskymLQ/view?usp=sharing
+```
+```bash
+# For DT2 pretrained model: obtained by finetuning the baseline model for 10k iterations with domain transferred images obtained through AdaIN
+python demo.py --config-file configs/vgg_ssd300_voc0712.yaml --images_dir demo --ckpt https://drive.google.com/file/d/1cQuk_6uElFONrCgzxubf0YH0KHYLkFFa/view?usp=sharing
+```
+
+Then it will download and cache the model automatically and predicted images with boxes, scores and label names will saved to `demo/result` folder by default.
 
 
 
