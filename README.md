@@ -90,7 +90,7 @@ python demo.py --config-file configs/vgg_ssd300_voc0712.yaml --images_dir demo -
 If you want to use the pretrained models, use the following commands -
 ```bash
 # For baseline pretrained model:
-python demo.py --config-file configs/vgg_ssd300_voc0712.yaml --images_dir demo --ckpt https://drive.google.com/file/d/1MqlQE0dp1eSHuKSqRk1VR6Muep1Lkclh/view?usp=sharing
+python demo.py --config-file configs/vgg_ssd300_voc0712.yaml --images_dir demo --ckpt https://github.com/pkr076/AIML_ExamProject/releases/download/v0.1/model_final_bl.pth
 ```
 ```bash
 # For DT1 pretrained model: obtained by finetuning the baseline model for 10k iterations with domain transferred images obtained through CycleGAN
