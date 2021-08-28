@@ -1,4 +1,4 @@
-# Cross-Domain Weakly-Supervised Object Detection through Progressive Domain Adaptation
+# Cross-Domain Weakly-Supervised Object Detection through Domain Adaptation
 
 
 This repository implements [SSD (Single Shot MultiBox Detector)](https://arxiv.org/abs/1512.02325). The implementation is heavily influenced by the projects [ssd.pytorch](https://github.com/amdegroot/ssd.pytorch), [pytorch-ssd](https://github.com/qfgaohao/pytorch-ssd) and [maskrcnn-benchmark](https://github.com/facebookresearch/maskrcnn-benchmark). This repository aims to be the code base for researches based on SSD.
@@ -94,11 +94,11 @@ python demo.py --config-file configs/vgg_ssd300_voc0712.yaml --images_dir demo -
 ```
 ```bash
 # For DT1 pretrained model: obtained by finetuning the baseline model for 10k iterations with domain transferred images obtained through CycleGAN
-python demo.py --config-file configs/vgg_ssd300_voc0712.yaml --images_dir demo --ckpt https://drive.google.com/file/d/1E7li2fWtchOxs8WIcYBl9AEwrvskymLQ/view?usp=sharing
+python demo.py --config-file configs/vgg_ssd300_voc0712.yaml --images_dir demo --ckpt https://github.com/pkr076/AIML_ExamProject/releases/download/v0.2/model_final_DT1.pth
 ```
 ```bash
 # For DT2 pretrained model: obtained by finetuning the baseline model for 10k iterations with domain transferred images obtained through AdaIN
-python demo.py --config-file configs/vgg_ssd300_voc0712.yaml --images_dir demo --ckpt https://drive.google.com/file/d/1cQuk_6uElFONrCgzxubf0YH0KHYLkFFa/view?usp=sharing
+python demo.py --config-file configs/vgg_ssd300_voc0712.yaml --images_dir demo --ckpt https://github.com/pkr076/AIML_ExamProject/releases/download/v0.3/model_final.pth
 ```
 
 Then it will download and cache the model automatically and predicted images with boxes, scores and label names will saved to `demo/result` folder by default.
