@@ -1,4 +1,4 @@
-# Cross-Domain Weakly-Supervised Object Detection through Domain Adaptation
+# Cross-Domain Object Detection through Domain Adaptation
 
 
 This repository implements [SSD (Single Shot MultiBox Detector)](https://arxiv.org/abs/1512.02325). This repository contains the code (in pyTorch) and it’s a slightly modified version of the code available at https://github.com/lufficc/SSD.
