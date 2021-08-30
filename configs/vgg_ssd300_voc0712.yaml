@@ -6,7 +6,7 @@ DATASETS:
   TRAIN: ("voc_2007_trainval", "voc_2012_trainval")
   TEST: ("voc_clipart_test", )
 SOLVER:
-  MAX_ITER: 90000
+  MAX_ITER: 80000
   LR_STEPS: [60000, 80000]
   GAMMA: 0.1
   BATCH_SIZE: 16
