@@ -102,13 +102,3 @@ python demo.py --config-file configs/vgg_ssd300_voc0712.yaml --images_dir demo -
 
 Then it will download and cache the model automatically and predicted images with boxes, scores and label names will saved to `demo/result` folder by default.
 
-
-
-
-## Develop Guide
-
-If you want to add your custom components, please see [DEVELOP_GUIDE.md](DEVELOP_GUIDE.md) for more details.
-
-
-## Troubleshooting
-If you have issues running or compiling this code, we have compiled a list of common issues in [TROUBLESHOOTING.md](TROUBLESHOOTING.md). If your issue is not present there, please feel free to open a new issue.
