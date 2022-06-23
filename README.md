@@ -1,7 +1,7 @@
 # Cross-Domain Object Detection through Domain Adaptation
 
-
-This repository implements [SSD (Single Shot MultiBox Detector)](https://arxiv.org/abs/1512.02325). This repository contains the code (in pyTorch) and it’s a slightly modified version of the code available at https://github.com/lufficc/SSD.
+Deep learning neural networks perform well in object detection when applied on natural images but, these neural networks still struggle to identify objects in art images such as paintings and drawings. To address this issue, this project aims to study the object detection task, and how we can transfer the learned knowledge from a natural image to a Clipart Images. We could increase the accuracy of the model by 14 percent in terms of mAP in comparison to SSD model.
+This repository implements [SSD (Single Shot MultiBox Detector)](https://arxiv.org/abs/1512.02325). This repository contains the code (in pyTorch) and I have used the code available at https://github.com/lufficc/SSD for training the SSD model for object detection.
 
 ## Installation
 ### Requirements
